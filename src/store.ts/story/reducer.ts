@@ -1,4 +1,6 @@
 import {
+  FETCH_STORY_START,
+  FETCH_STORY_SUCCESS,
   IStoryState,
   NEXT_MESSAGE,
   PREV_MESSAGE,
@@ -28,6 +30,14 @@ export function storyReducer(
       return {
         ...state,
         current: state.current > 1 ? state.current - 1 : state.current
+      }
+    case FETCH_STORY_START:
+      return initialState
+    case FETCH_STORY_SUCCESS:
+      return {
+        current: 1,
+        loading: false,
+        messages: action.payload
       }
     default:
       return state

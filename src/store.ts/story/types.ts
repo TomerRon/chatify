@@ -20,4 +20,20 @@ interface IPrevMessageAction {
   readonly type: typeof PREV_MESSAGE
 }
 
-export type TStoryActionTypes = INextMessageAction | IPrevMessageAction
+export const FETCH_STORY_START = 'FETCH_STORY_START'
+export const FETCH_STORY_SUCCESS = 'FETCH_STORY_SUCCESS'
+
+interface IFetchStoryStartAction {
+  readonly type: typeof FETCH_STORY_START
+}
+
+interface IFetchStorySuccessAction {
+  readonly type: typeof FETCH_STORY_SUCCESS
+  readonly payload: readonly IMessage[]
+}
+
+export type TStoryActionTypes =
+  | INextMessageAction
+  | IPrevMessageAction
+  | IFetchStoryStartAction
+  | IFetchStorySuccessAction

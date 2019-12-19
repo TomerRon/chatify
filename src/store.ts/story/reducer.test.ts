@@ -1,6 +1,13 @@
 // tslint:disable:no-expression-statement
 import { storyReducer } from './reducer'
-import { IStoryState, NEXT_MESSAGE, PREV_MESSAGE } from './types'
+import {
+  FETCH_STORY_START,
+  FETCH_STORY_SUCCESS,
+  IMessage,
+  IStoryState,
+  NEXT_MESSAGE,
+  PREV_MESSAGE
+} from './types'
 
 const MOCK_STATE: IStoryState = {
   current: 2,
@@ -84,5 +91,36 @@ describe('Story reducer', () => {
         })
       ).toStrictEqual(state)
     })
+  })
+
+  it('should handle FETCH_STORY_START', () => {
+    const expected = {
+      current: 0,
+      loading: true,
+      messages: []
+    }
+
+    expect(
+      storyReducer(MOCK_STATE, {
+        type: FETCH_STORY_START
+      })
+    ).toStrictEqual(expected)
+  })
+
+  it('should handle FETCH_STORY_SUCCESS', () => {
+    const messages: readonly IMessage[] = [
+      { body: 'foobar-body', name: 'foobar-name' }
+    ]
+    const expected = {
+      current: 1,
+      loading: false,
+      messages
+    }
+    expect(
+      storyReducer(MOCK_STATE, {
+        payload: messages,
+        type: FETCH_STORY_SUCCESS
+      })
+    ).toStrictEqual(expected)
   })
 })
