@@ -44,7 +44,11 @@ const MOCK_DATA: readonly IMessage[] = [
 
 export const fetchStory = (): AppThunk => async dispatch => {
   dispatch(fetchStoryStart())
-  setTimeout(() => {
-    dispatch(fetchStorySuccess(MOCK_DATA))
-  }, 3000)
+
+  const response = await fetch(
+    'http://www.mocky.io/v2/5dfbd68b2f00005700ffa216'
+  )
+  const { messages } = await response.json()
+
+  dispatch(fetchStorySuccess(messages))
 }

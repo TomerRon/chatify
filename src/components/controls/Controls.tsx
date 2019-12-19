@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     top: 0
   },
   content: {
+    backgroundColor: '#fafafa',
     borderBottomWidth: 1,
     borderColor: '#eee',
     borderTopWidth: 1,
@@ -23,7 +24,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   input: {
-    backgroundColor: '#fafafa',
     flex: 1
   }
 })
