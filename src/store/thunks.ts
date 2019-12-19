@@ -12,36 +12,6 @@ type AppThunk<ReturnType = void> = ThunkAction<
   Action<string>
 >
 
-const MOCK_DATA: readonly IMessage[] = [
-  {
-    body: 'Hi, I am Jim',
-    name: 'Jim'
-  },
-  {
-    body: 'Hello, I am Dwight',
-    name: 'Dwight'
-  },
-  {
-    body:
-      'This is a really really really really long message, what do you think about that?',
-    name: 'Jim'
-  },
-  {
-    body:
-      'This is another really really really really long message, what do you think about that?',
-    name: 'Jim'
-  },
-  {
-    body:
-      'This is another really really really really long message, what do you think about that?',
-    name: 'Jim'
-  },
-  {
-    body: "Wow, that's a mouthful",
-    name: 'Dwight'
-  }
-]
-
 export const fetchStory = (): AppThunk => async dispatch => {
   dispatch(fetchStoryStart())
 
