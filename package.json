@@ -34,6 +34,10 @@
   },
   "private": true,
   "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text"
+    ],
     "roots": [
       "<rootDir>/src"
     ],

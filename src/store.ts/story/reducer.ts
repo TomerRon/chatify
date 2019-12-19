@@ -21,7 +21,7 @@ export function storyReducer(
         ...state,
         current:
           state.current < state.messages.length
-            ? (state.current || 0) + 1
+            ? state.current + 1
             : state.current
       }
     case PREV_MESSAGE:
